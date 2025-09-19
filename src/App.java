@@ -86,11 +86,43 @@ public class App {
         System.out.println("The secret number is " + secretNumber + ". Shh! Don't tell anyone");
         Scanner reader = new Scanner(System.in);
         // WRITE YOUR CODE IN THE SPACE BELOW
+        
+        int count = 0;
+        String evenodd = "";
+        while(true){
+            System.out.println("Guess a number:");
+            int guess = Integer.valueOf(reader.nextLine());
+
+            if(guess<1 || guess>20){
+                System.out.println("Enter a valid number");
+            }
+            if(guess==secretNumber){
+                break;
+            }
+
+            if(guess>secretNumber && guess<=20){
+                System.out.println("Lower");
+            } else if(guess<secretNumber && guess>=1){
+                System.out.println("Higher");
+            }
+            
+            if(secretNumber%2==0){
+                evenodd = "even";
+            } else if(secretNumber%2==1){
+                evenodd = "odd";
+            }
+
+            if(count==4){
+                System.out.println("Hint: the secret number is " + evenodd);
+            }
+
+            count++;
+        }
+        System.out.println("It took you " + count + " guesses.");
 
 
 
     }
-
 
 
     // Do not modify!!!
